@@ -52,6 +52,7 @@ Enter your token, the domain (without .duckdns.org) and the number of seconds be
 TOKEN=310eff65-bd83-4c52-b655-9d1f8d1036dc
 DOMAIN=mydomain
 INTERVAL=300
+DOMAIN_DNS=vjbox.duckdns.org
 ```
 
 Start and enable the service
