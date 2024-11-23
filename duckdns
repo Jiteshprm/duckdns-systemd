@@ -14,9 +14,6 @@ else
     exit 1
 fi
 
-
-DOMAIN_DNS="example.com"
-
 # Resolve IP using nslookup
 CURRENT_DOMAIN_DNS_IP=$(nslookup "$DOMAIN_DNS" | awk '/^Address: / { print $2 }' | tail -n 1)
 
