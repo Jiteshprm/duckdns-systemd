@@ -17,18 +17,15 @@ fi
 # Resolve IP using nslookup
 CURRENT_DOMAIN_DNS_IP=$(nslookup "$DOMAIN_DNS" | awk '/^Address: / { print $2 }' | tail -n 1)
 
-if [ "$CURRENT_DOMAIN_DNS_IP" == "$LAST_IP" ]; then
-  logger -t duckdns "IP is still the same, not updating"
-else
-  if [ ! -f "$LAST_IP" ]; then
-      if NEW_IP="$(dig +short myip.opendns.com @208.67.222.222)"; then
-          echo "$NEW_IP" > "$LAST_IP"
-          logger -t duckdns "Initialization succeeded, domain: $DOMAIN.duckdns.org, IP: $NEW_IP"
-      else
-          logger -t duckdns "Unable to detect the public IP address"
-          exit 1
-      fi
-  fi
+
+if [ ! -f "$LAST_IP" ]; then
+    if NEW_IP="$(dig +short myip.opendns.com @208.67.222.222)"; then
+        echo "$NEW_IP" > "$LAST_IP"
+        logger -t duckdns "Initialization succeeded, domain: $DOMAIN.duckdns.org, IP: $NEW_IP"
+    else
+        logger -t duckdns "Unable to detect the public IP address"
+        exit 1
+    fi
 fi
 
 while true; do
