@@ -26,7 +26,7 @@ cp duckdns-systemd/duckdns ~/
 
 Setup the systemd unit
 ```
-cp conf/duckdns.service /etc/systemd/system
+sudo cp conf/duckdns.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable duckdns.service
 sudo systemctl start duckdns.service
@@ -66,7 +66,7 @@ systemctl --user enable duckdns
 
 Check that the service is indeed working
 ```
-$ systemctl --user status duckdns
+$ sudo systemctl status duckdns
 ● duckdns.service - Duck DNS Updater
    Loaded: loaded (/home/user/.config/systemd/user/duckdns.service; enabled; vendor preset: enabled)
    Active: active (running) since Tue 2019-09-03 16:55:16 CEST; 8s ago
