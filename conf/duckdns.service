@@ -5,7 +5,7 @@ Requires=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/home/user/duckdns
+ExecStart=/home/birdofprey/duckdns-systemd/duckdns
 
 [Install]
 WantedBy=multi-user.target
