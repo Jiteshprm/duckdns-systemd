@@ -26,9 +26,10 @@ cp duckdns-systemd/duckdns ~/
 
 Setup the systemd unit
 ```
-mkdir -p ~/.config/systemd/user
-cp duckdns-systemd/conf/duckdns.service ~/.config/systemd/user/
-nano ~/.config/systemd/user/duckdns.service
+cp conf/duckdns.service /etc/systemd/system
+sudo systemctl daemon-reload
+sudo systemctl enable duckdns.service
+sudo systemctl start duckdns.service
 ```
 
 Change the line `ExecStart=...` to point to the FULL PATH to the script, for example `/home/user/duckdns` in this case

@@ -4,6 +4,7 @@ After=multi-user.target
 Requires=multi-user.target
 
 [Service]
+User=birdofprey
 Type=simple
 ExecStart=/home/birdofprey/duckdns-systemd/duckdns
 
