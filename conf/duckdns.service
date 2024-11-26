@@ -1,9 +1,11 @@
 [Unit]
 Description=Duck DNS Updater
+After=multi-user.target
+Requires=multi-user.target
 
 [Service]
 Type=simple
 ExecStart=/home/user/duckdns
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
